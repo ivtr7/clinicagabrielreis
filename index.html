@@ -1,458 +1,1205 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínica Odontológica Dr. Gabriel Reis</title>
-    <meta name="description" content="Links oficiais, vídeos e conteúdos da Clínica Odontológica Dr. Gabriel Reis — agende sua consulta em Juiz de Fora, MG.">
-    <meta property="og:title" content="Clínica Odontológica Dr. Gabriel Reis">
-    <meta property="og:description" content="Tudo sobre a Clínica Odontológica Dr. Gabriel Reis em um só lugar.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dr. Gabriel Reis — Implantes Dentários e Carga Imediata em Divino MG</title>
+  <meta name="description" content="Implantes dentários, protocolo carga imediata e reabilitação oral em Divino MG. Atendimento humanizado e planejamento individualizado." />
+
+  <!-- Fontes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" />
+
+  <style>
+    /* ============================================================
+       VARIÁVEIS DA IDENTIDADE VISUAL — Clínica Dr. Gabriel Reis
+       Paleta premium: preto + degradê champagne/ouro/âmbar
+       ============================================================ */
+    :root {
+      --tinta: #0d0d0d;
+      --tinta-suave: #232323;
+      --ouro-claro: #F7E7B0;
+      --ouro: #D6A93A;
+      --ouro-profundo: #F28C28;
+      --branco: #ffffff;
+      --cinza-claro: #fafaf7;
+      --texto-suave: #6b6b6b;
+
+      --gradiente-ouro: linear-gradient(135deg, #F7E7B0 0%, #D6A93A 50%, #F28C28 100%);
+      --gradiente-escuro: radial-gradient(ellipse at 30% 20%, #2a2a2a 0%, #181818 40%, #0a0a0a 100%);
+      --sombra-elegante: 0 30px 80px -30px rgba(0,0,0,0.6);
+      --sombra-ouro: 0 10px 40px -10px rgba(214,169,58,0.45);
+    }
+
+    /* ============================================================
+       RESET E BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      color: var(--tinta);
+      background: var(--branco);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: 0; background: none; }
+    ul { list-style: none; }
+
+    .fonte-serif { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .container-pequeno { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+    /* Texto com gradiente dourado */
+    .texto-ouro {
+      background: var(--gradiente-ouro);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Etiqueta de seção (eyebrow) */
+    .etiqueta-secao {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+    .etiqueta-secao::before, .etiqueta-secao::after {
+      content: ""; width: 32px; height: 1px; background: var(--gradiente-ouro);
+    }
+    .etiqueta-secao span {
+      background: var(--gradiente-ouro);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ============================================================
+       BOTÃO ANIMADO (CTA principal — identidade dourada)
+       ============================================================ */
+    .botao-animado {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 16px 36px;
+      border: 4px solid transparent;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background-color: transparent;
+      border-radius: 100px;
+      color: var(--ouro);
+      box-shadow: 0 0 0 2px var(--ouro), 0 8px 24px -10px rgba(214,169,58,0.5);
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .botao-animado svg {
+      position: absolute; width: 22px; height: 22px; fill: var(--ouro);
+      z-index: 9; transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .botao-animado .seta-direita { right: 18px; }
+    .botao-animado .seta-esquerda { left: -25%; }
+    .botao-animado .circulo {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px; height: 20px;
+      background: var(--gradiente-ouro);
+      border-radius: 50%; opacity: 0;
+      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .botao-animado .texto-botao {
+      position: relative; z-index: 1;
+      transform: translateX(-14px);
+      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .botao-animado:hover {
+      box-shadow: 0 0 0 12px transparent, 0 14px 40px -10px rgba(242,140,40,0.55);
+      color: #0d0d0d; border-radius: 14px;
+    }
+    .botao-animado:hover .seta-direita { right: -25%; }
+    .botao-animado:hover .seta-esquerda { left: 18px; }
+    .botao-animado:hover .texto-botao { transform: translateX(14px); }
+    .botao-animado:hover svg { fill: #0d0d0d; }
+    .botao-animado:hover .circulo { width: 320px; height: 320px; opacity: 1; }
+    .botao-animado:active { transform: scale(0.97); }
+
+    /* ============================================================
+       NAVEGAÇÃO FIXA NO TOPO
+       ============================================================ */
+    .nav-topo {
+      position: fixed; inset: 0 0 auto 0; z-index: 50;
+      background: rgba(13,13,13,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .nav-conteudo {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 24px;
+    }
+    .nav-logo { height: 36px; width: auto; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: 999px;
+      border: 1px solid var(--ouro);
+      font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+      background: var(--gradiente-ouro); color: var(--tinta);
+      transition: filter .2s, transform .2s;
+    }
+    .nav-cta:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+    /* ============================================================
+       SEÇÃO HERO
+       ============================================================ */
+    .hero {
+      position: relative; overflow: hidden;
+      background: var(--gradiente-escuro);
+      color: var(--branco);
+      padding: 120px 0 80px;
+    }
+    .hero::before {
+      content: ""; position: absolute; top: -120px; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(circle, #D6A93A 0%, transparent 60%);
+      opacity: 0.28; filter: blur(60px); pointer-events: none;
+    }
+    .hero-grade {
+      position: absolute; inset: 0; opacity: 0.04; pointer-events: none;
+      background-image:
+        linear-gradient(#fff 1px, transparent 1px),
+        linear-gradient(90deg, #fff 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-conteudo {
+      position: relative; display: grid; gap: 56px; align-items: center;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 1024px) { .hero-conteudo { grid-template-columns: 1.1fr 0.9fr; } }
+
+    .hero h1 {
+      margin-top: 24px;
+      font-size: clamp(28px, 5vw, 56px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .hero-sub { margin-top: 24px; max-width: 560px; font-size: 18px; font-weight: 500; color: rgba(255,255,255,0.85); }
+    .hero-apoio { margin-top: 16px; max-width: 560px; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.65; }
+    .hero-cta-bloco { margin-top: 36px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+    @media (min-width: 640px) { .hero-cta-bloco { flex-direction: row; align-items: center; } }
+    .micro-copy { font-size: 12px; color: rgba(255,255,255,0.55); }
+
+    /* Selos do hero */
+    .selos { margin-top: 40px; display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); }
+    @media (min-width: 640px) { .selos { grid-template-columns: repeat(4, 1fr); } }
+    .selo {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(214,169,58,0.35);
+      background: rgba(255,255,255,0.03);
+    }
+    .selo svg { flex-shrink: 0; color: var(--ouro); }
+    .selo span { font-size: 11px; font-weight: 600; line-height: 1.2; color: rgba(255,255,255,0.85); }
+
+    /* Imagem do hero */
+    .hero-imagem-wrap { position: relative; }
+    .hero-imagem-glow {
+      position: absolute; inset: -16px;
+      background: var(--gradiente-ouro);
+      filter: blur(40px); opacity: 0.3;
+      border-radius: 32px;
+    }
+    .hero-imagem {
+      position: relative; overflow: hidden;
+      border-radius: 32px;
+      border: 1px solid rgba(214,169,58,0.35);
+      box-shadow: var(--sombra-elegante);
+    }
+    .hero-imagem img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-imagem-legenda {
+      position: absolute; inset: auto 0 0 0;
+      padding: 24px;
+      background: linear-gradient(to top, #000 0%, rgba(0,0,0,0.7) 60%, transparent 100%);
+    }
+    .hero-imagem-legenda .nome-pequeno { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--ouro-claro); }
+    .hero-imagem-legenda .nome-grande { font-size: 18px; font-weight: 700; }
+    .hero-imagem-legenda .sub { font-size: 12px; color: rgba(255,255,255,0.7); }
+
+    /* ============================================================
+       SEÇÃO DE DOR / IDENTIFICAÇÃO
+       ============================================================ */
+    .secao-dor { background: var(--cinza-claro); padding: 80px 0; position: relative; }
+    .titulo-secao {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-top: 20px;
+    }
+    .descricao-secao {
+      margin: 20px auto 0;
+      max-width: 640px;
+      font-size: 16px;
+      color: var(--texto-suave);
+    }
+    .centralizar { text-align: center; }
+    .grade-cards { margin-top: 56px; display: grid; gap: 20px; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .grade-cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .grade-cards { grid-template-columns: repeat(3, 1fr); } }
+    .card-claro {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 24px;
+      background: var(--branco);
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 20px 50px -25px rgba(0,0,0,0.18);
+      transition: transform .3s ease;
+    }
+    .card-claro:hover { transform: translateY(-4px); }
+    .icone-ouro {
+      flex-shrink: 0;
+      display: grid; place-items: center;
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--gradiente-ouro);
+      color: var(--tinta);
+      box-shadow: var(--sombra-ouro);
+    }
+    .card-claro p { font-size: 15px; font-weight: 500; line-height: 1.4; }
+
+    .card-fechamento {
+      display: flex; align-items: center;
+      padding: 24px;
+      border-radius: 16px;
+      border: 1px solid var(--ouro);
+      background: var(--branco);
+    }
+    .card-fechamento p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; line-height: 1.4; }
+
+    /* ============================================================
+       SEÇÃO PROTOCOLO CARGA IMEDIATA
+       ============================================================ */
+    .secao-protocolo {
+      position: relative; overflow: hidden;
+      background: var(--gradiente-escuro);
+      color: var(--branco);
+      padding: 80px 0;
+    }
+    .secao-protocolo::after {
+      content: ""; position: absolute; right: -120px; top: 80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, #F28C28, transparent 60%);
+      opacity: 0.2; filter: blur(60px); pointer-events: none;
+    }
+    .grade-2 { position: relative; display: grid; gap: 48px; grid-template-columns: 1fr; align-items: center; }
+    @media (min-width: 1024px) { .grade-2 { grid-template-columns: 1fr 1fr; } }
+    .texto-claro { color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.65; }
+    .texto-claro-forte { color: rgba(255,255,255,0.85); font-size: 18px; font-weight: 500; margin-top: 20px; }
+
+    .card-escuro {
+      position: relative;
+      padding: 32px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(35,35,35,0.9), rgba(20,20,20,0.9));
+      border: 1px solid rgba(214,169,58,0.22);
+      box-shadow: var(--sombra-elegante);
+    }
+    .selo-card-titulo {
+      position: absolute; top: -12px; left: 32px;
+      padding: 4px 16px; border-radius: 999px;
+      background: var(--gradiente-ouro); color: var(--tinta);
+      font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.25em;
+    }
+    .lista-beneficios { margin-top: 16px; }
+    .lista-beneficios li {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 16px; font-weight: 600;
+    }
+    .lista-beneficios li:last-child { border-bottom: 0; }
+    .lista-beneficios .check {
+      flex-shrink: 0;
+      display: grid; place-items: center;
+      width: 36px; height: 36px; border-radius: 999px;
+      border: 1px solid var(--ouro);
+      background: rgba(0,0,0,0.4);
+      color: var(--ouro-claro);
+    }
+
+    /* ============================================================
+       SEÇÃO TIPOS DE IMPLANTES
+       ============================================================ */
+    .secao-implantes { background: var(--branco); padding: 80px 0; }
+    .grade-4 { margin-top: 48px; display: grid; gap: 20px; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .grade-4 { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .grade-4 { grid-template-columns: repeat(4, 1fr); } }
+    .card-implante {
+      position: relative; overflow: hidden;
+      padding: 24px;
+      border-radius: 16px;
+      background: #fafaf6;
+      border: 1px solid rgba(214,169,58,0.35);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .card-implante:hover { transform: translateY(-4px); box-shadow: var(--sombra-elegante); }
+    .numero-card {
+      display: inline-grid; place-items: center;
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--gradiente-ouro); color: var(--tinta);
+      font-weight: 800;
+      box-shadow: var(--sombra-ouro);
+    }
+    .card-implante h3 { margin-top: 20px; font-size: 18px; font-weight: 700; }
+    .card-implante p { margin-top: 8px; font-size: 14px; color: var(--texto-suave); font-weight: 500; }
+    .linha-ouro { margin-top: 24px; width: 48px; height: 1px; background: var(--gradiente-ouro); }
+
+    /* ============================================================
+       SEÇÃO ANTES E DEPOIS
+       ============================================================ */
+    .secao-antes-depois { background: var(--gradiente-escuro); color: var(--branco); padding: 80px 0; position: relative; overflow: hidden; }
+    .secao-antes-depois::before {
+      content: ""; position: absolute; left: -160px; top: 33%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, #D6A93A, transparent 60%);
+      opacity: 0.2; filter: blur(60px); pointer-events: none;
+    }
+    .grade-antes-depois { margin-top: 56px; display: grid; gap: 24px; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .grade-antes-depois { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .grade-antes-depois { grid-template-columns: repeat(4, 1fr); } }
+    .card-caso {
+      overflow: hidden;
+      padding: 8px;
+      border-radius: 16px;
+      border: 1px solid rgba(214,169,58,0.35);
+      background: rgba(0,0,0,0.4);
+      transition: transform .3s, border-color .3s;
+    }
+    .card-caso:hover { transform: translateY(-4px); border-color: var(--ouro); }
+    .card-caso img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 12px; }
+    .legenda-caso {
+      display: flex; justify-content: space-between;
+      padding: 12px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+    .aviso-discreto {
+      margin: 40px auto 0; max-width: 600px;
+      text-align: center;
+      font-size: 12px; font-style: italic;
+      color: rgba(255,255,255,0.5);
+    }
+    .centro-flex { display: flex; justify-content: center; margin-top: 40px; }
+
+    /* ============================================================
+       SEÇÃO DR. GABRIEL
+       ============================================================ */
+    .secao-doutor { background: var(--cinza-claro); padding: 80px 0; }
+    .card-doutor {
+      display: grid; grid-template-columns: 1fr;
+      overflow: hidden;
+      border-radius: 24px;
+      background: var(--branco);
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 20px 50px -25px rgba(0,0,0,0.18);
+    }
+    @media (min-width: 1024px) { .card-doutor { grid-template-columns: 0.9fr 1.1fr; } }
+    .card-doutor-foto { position: relative; }
+    .card-doutor-foto img { width: 100%; min-height: 420px; height: 100%; object-fit: cover; }
+    .selo-cro {
+      position: absolute; top: 16px; left: 16px;
+      padding: 4px 12px; border-radius: 999px;
+      background: rgba(0,0,0,0.7);
+      font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--ouro-claro);
+    }
+    .card-doutor-info { padding: 32px; }
+    @media (min-width: 768px) { .card-doutor-info { padding: 48px; } }
+    .card-doutor-info h2 { margin-top: 20px; font-size: 32px; font-weight: 800; }
+    .destaque-cargo { margin-top: 12px; font-size: 15px; font-weight: 600; color: #a87a1c; }
+    .lista-diferenciais {
+      margin-top: 24px;
+      display: grid; gap: 8px; grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) { .lista-diferenciais { grid-template-columns: 1fr 1fr; } }
+    .lista-diferenciais li { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; font-weight: 500; }
+    .lista-diferenciais svg { flex-shrink: 0; color: var(--ouro); margin-top: 2px; }
+
+    /* ============================================================
+       SEÇÃO CLÍNICA E EQUIPE
+       ============================================================ */
+    .secao-clinica { background: var(--gradiente-escuro); color: var(--branco); padding: 80px 0; }
+    .grade-clinica { margin-top: 48px; display: grid; gap: 24px; grid-template-columns: 1fr; }
+    @media (min-width: 1024px) { .grade-clinica { grid-template-columns: 1fr 1.2fr; } }
+    .card-marilia {
+      padding: 32px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(35,35,35,0.9), rgba(20,20,20,0.9));
+      border: 1px solid rgba(214,169,58,0.22);
+    }
+    .card-marilia-topo { display: flex; align-items: flex-start; gap: 16px; }
+    .card-marilia-icone {
+      display: grid; place-items: center;
+      width: 56px; height: 56px; border-radius: 16px;
+      background: var(--gradiente-ouro); color: var(--tinta);
+      flex-shrink: 0;
+    }
+    .card-marilia .funcao { font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ouro-claro); }
+    .card-marilia h3 { margin-top: 4px; font-size: 24px; font-weight: 700; }
+    .card-marilia p { margin-top: 20px; font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.65; }
+    .grade-mini-cards { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .grade-mini-cards { grid-template-columns: 1fr 1fr; } }
+    .mini-card {
+      padding: 24px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(35,35,35,0.9), rgba(20,20,20,0.9));
+      border: 1px solid rgba(214,169,58,0.22);
+      transition: transform .3s;
+    }
+    .mini-card:hover { transform: translateY(-4px); }
+    .mini-card svg { color: var(--ouro); }
+    .mini-card h4 { margin-top: 16px; font-size: 16px; font-weight: 700; }
+
+    /* ============================================================
+       SEÇÃO POR QUE ESCOLHER
+       ============================================================ */
+    .secao-porque { background: var(--branco); padding: 80px 0; }
+    .grade-porque { margin-top: 56px; display: grid; gap: 20px; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .grade-porque { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .grade-porque { grid-template-columns: repeat(4, 1fr); } }
+    .card-porque {
+      position: relative; overflow: hidden;
+      padding: 28px;
+      border-radius: 16px;
+      background: var(--tinta); color: var(--branco);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .card-porque:hover { transform: translateY(-6px); box-shadow: var(--sombra-elegante); }
+    .card-porque::before {
+      content: ""; position: absolute; top: -24px; right: -24px;
+      width: 96px; height: 96px; border-radius: 50%;
+      background: var(--gradiente-ouro); opacity: 0.2; filter: blur(30px);
+    }
+    .card-porque .numero {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 30px;
+      background: var(--gradiente-ouro);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .card-porque h3 { margin-top: 20px; font-size: 20px; font-weight: 800; }
+    .divisor-ouro { margin: 16px 0; height: 1px; background: linear-gradient(90deg, transparent, var(--ouro), transparent); }
+    .card-porque p { font-size: 14px; color: rgba(255,255,255,0.7); }
+
+    /* ============================================================
+       SEÇÃO DEPOIMENTOS EM VÍDEO
+       ============================================================ */
+    .secao-depoimentos { background: var(--gradiente-escuro); color: var(--branco); padding: 80px 0; }
+    .grade-depoimentos { margin-top: 56px; display: grid; gap: 24px; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .grade-depoimentos { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .grade-depoimentos { grid-template-columns: repeat(3, 1fr); } }
+    .card-video {
+      position: relative; aspect-ratio: 9/12;
+      overflow: hidden;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      border: 1px solid rgba(214,169,58,0.35);
+      transition: transform .3s, border-color .3s;
+    }
+    .card-video:hover { transform: translateY(-4px); border-color: var(--ouro); }
+    .botao-play {
+      position: absolute; inset: 0; display: grid; place-items: center;
+    }
+    .botao-play span {
+      display: grid; place-items: center;
+      width: 80px; height: 80px; border-radius: 50%;
+      background: var(--gradiente-ouro); color: var(--tinta);
+      box-shadow: var(--sombra-ouro);
+      transition: transform .3s;
+    }
+    .card-video:hover .botao-play span { transform: scale(1.1); }
+    .info-video {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 20px;
+    }
+    .estrelas { display: flex; gap: 2px; color: var(--ouro-claro); }
+    .info-video .nome { margin-top: 8px; font-size: 14px; font-weight: 700; }
+    .info-video .desc { font-size: 12px; color: rgba(255,255,255,0.6); }
+    .card-citacao {
+      display: none;
+      align-items: center; justify-content: center;
+      padding: 32px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(35,35,35,0.9), rgba(20,20,20,0.9));
+      border: 1px solid rgba(214,169,58,0.22);
+      text-align: center;
+    }
+    @media (min-width: 1024px) { .card-citacao { display: flex; } }
+    .card-citacao p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; line-height: 1.4; color: var(--ouro-claro); }
+
+    /* ============================================================
+       SEÇÃO MEDO DE DENTISTA
+       ============================================================ */
+    .secao-medo { background: var(--branco); padding: 80px 0; }
+    .grade-medo { margin-top: 48px; display: grid; gap: 16px; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .grade-medo { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .grade-medo { grid-template-columns: repeat(5, 1fr); } }
+    .card-medo {
+      padding: 20px;
+      text-align: center;
+      border-radius: 16px;
+      background: var(--cinza-claro);
+      border: 1px solid rgba(214,169,58,0.35);
+      transition: transform .3s, box-shadow .3s, background .3s;
+    }
+    .card-medo:hover { transform: translateY(-4px); background: var(--branco); box-shadow: var(--sombra-elegante); }
+    .card-medo .icone {
+      margin: 0 auto;
+      display: grid; place-items: center;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--gradiente-ouro); color: var(--tinta);
+    }
+    .card-medo p { margin-top: 16px; font-size: 13px; font-weight: 600; line-height: 1.3; }
+
+    /* ============================================================
+       SEÇÃO PRODUTORES RURAIS
+       ============================================================ */
+    .secao-rural { background: var(--branco); padding: 48px 0 80px; }
+    .card-rural {
+      position: relative; overflow: hidden;
+      padding: 32px;
+      border-radius: 24px;
+      background: var(--gradiente-escuro);
+      color: var(--branco);
+      box-shadow: var(--sombra-elegante);
+    }
+    @media (min-width: 768px) { .card-rural { padding: 56px; } }
+    .card-rural::before {
+      content: ""; position: absolute; right: -80px; top: -80px;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: var(--gradiente-ouro); opacity: 0.25; filter: blur(50px);
+    }
+    .conteudo-rural { position: relative; display: grid; gap: 32px; grid-template-columns: 1fr; align-items: center; }
+    @media (min-width: 1024px) { .conteudo-rural { grid-template-columns: 1.4fr 1fr; } }
+    .conteudo-rural h2 { margin-top: 20px; font-size: clamp(24px, 4vw, 36px); font-weight: 800; }
+    .conteudo-rural p { margin-top: 20px; max-width: 520px; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.75); }
+    .alinha-direita { display: flex; }
+    @media (min-width: 1024px) { .alinha-direita { justify-content: flex-end; } }
+
+    /* ============================================================
+       SEÇÃO FAQ
+       ============================================================ */
+    .secao-faq { background: var(--cinza-claro); padding: 80px 0; }
+    .lista-faq { margin-top: 48px; display: flex; flex-direction: column; gap: 12px; }
+    .item-faq {
+      overflow: hidden;
+      border-radius: 16px;
+      background: var(--branco);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .item-faq.aberto { border-color: var(--ouro); box-shadow: var(--sombra-elegante); }
+    .item-faq button {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; width: 100%;
+      padding: 20px 24px;
+      text-align: left;
+      font-size: 15px; font-weight: 700;
+    }
+    .item-faq button svg {
+      flex-shrink: 0; color: var(--ouro);
+      transition: transform .3s;
+    }
+    .item-faq.aberto button svg { transform: rotate(180deg); }
+    .resposta-faq {
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s ease, padding .3s;
+      padding: 0 24px;
+      font-size: 14px; line-height: 1.65; color: var(--texto-suave);
+    }
+    .item-faq.aberto .resposta-faq {
+      max-height: 400px;
+      padding: 0 24px 24px;
+    }
+
+    /* ============================================================
+       CTA FINAL
+       ============================================================ */
+    .cta-final {
+      position: relative; overflow: hidden;
+      background: var(--gradiente-escuro);
+      color: var(--branco);
+      padding: 96px 0;
+      text-align: center;
+    }
+    .cta-final::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, #D6A93A 0%, transparent 50%);
+      opacity: 0.3; pointer-events: none;
+    }
+    .cta-final .container-pequeno { position: relative; }
+    .cta-final h2 { margin-top: 24px; font-size: clamp(28px, 4.5vw, 48px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+    .cta-final .sub { margin-top: 24px; font-size: 18px; font-weight: 500; color: rgba(255,255,255,0.85); }
+    .cta-final .apoio { margin-top: 12px; font-size: 15px; color: rgba(255,255,255,0.65); }
+
+    /* ============================================================
+       RODAPÉ
+       ============================================================ */
+    .rodape { background: #111; color: rgba(255,255,255,0.7); padding: 56px 0; }
+    .grade-rodape { display: grid; gap: 40px; grid-template-columns: 1fr; }
+    @media (min-width: 768px) { .grade-rodape { grid-template-columns: repeat(3, 1fr); } }
+    .rodape h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ouro-claro); }
+    .rodape ul { margin-top: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 14px; }
+    .rodape ul li { display: flex; align-items: flex-start; gap: 8px; }
+    .rodape ul svg { color: var(--ouro); flex-shrink: 0; margin-top: 2px; }
+    .rodape-divisor { margin: 40px 0; height: 1px; background: linear-gradient(90deg, transparent, var(--ouro), transparent); }
+    .aviso-final { font-size: 12px; color: rgba(255,255,255,0.45); }
+    .copyright { margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.35); }
+    .logo-rodape { height: 40px; }
+
+    /* ============================================================
+       BOTÃO WHATSAPP FLUTUANTE
+       ============================================================ */
+    .whatsapp-flutuante {
+      position: fixed; bottom: 20px; right: 20px; z-index: 60;
+      display: grid; place-items: center;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25D366; color: #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 0 0 4px rgba(37,211,102,0.25);
+      transition: transform .2s;
+    }
+    .whatsapp-flutuante:hover { transform: scale(1.1); }
+    @media (min-width: 768px) {
+      .whatsapp-flutuante { width: 64px; height: 64px; }
+    }
+
+    /* ============================================================
+       DIVISORES SUTIS ENTRE SEÇÕES
+       ============================================================ */
+    main > section + section { position: relative; }
+    main > section + section::after {
+      content: ""; position: absolute; top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: min(1100px, 88%); height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(214,169,58,0.22), transparent);
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       MOBILE — ajustes finos do botão
+       ============================================================ */
+    @media (max-width: 640px) {
+      .botao-animado { padding: 12px 22px; font-size: 13px; width: 100%; justify-content: center; }
+      .botao-animado svg { width: 20px; height: 20px; }
+      .nav-cta { padding: 8px 14px; font-size: 10px; }
+      .hero { padding: 100px 0 60px; }
+    }
+  </style>
 </head>
 <body>
-    <main class="relative min-h-screen bg-app px-3 py-5 sm:px-6 sm:py-8 lg:py-10">
-        <div class="mx-auto w-full max-w-5xl space-y-3 sm:space-y-5 lg:space-y-6">
-            <!-- HERO CARD -->
-            <section class="rounded-[22px] sm:rounded-[28px] border border-white/[0.06] bg-[#0c0c0c]/85 backdrop-blur-xl shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] p-5 sm:p-6 md:p-8">
-                <div class="grid gap-6 md:gap-10 md:grid-cols-2 items-center md:items-start">
-                    <!-- LEFT — identity -->
-                    <div class="flex flex-col items-center text-center md:items-start md:text-left">
-                        <div class="relative h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48 rounded-2xl border border-[#d4a857]/40 bg-[#0a0a0a] shrink-0 overflow-hidden">
-                            <img
-                                src="logo-gr.png"
-                                alt="Logo Clínica Dr. Gabriel Reis"
-                                class="absolute inset-0 h-full w-full object-cover"
-                            />
-                        </div>
 
-                        <h1 class="font-display mt-4 sm:mt-6 text-[1.5rem] sm:text-[2rem] md:text-[2.25rem] font-medium leading-[1.05] tracking-tight text-[#f5f1e8]">
-                            Clínica Odontológica
-                            <br />
-                            <span class="text-[#d4a857]">Dr. Gabriel Reis</span>
-                        </h1>
+  <!-- ============================================================
+       LINKS — número WhatsApp e assets do CDN
+       ============================================================ -->
+  <script>
+    // URL do WhatsApp — basta substituir o número
+    window.URL_WHATSAPP = "https://wa.me/5500000000000?text=" + encodeURIComponent("Olá Dr. Gabriel, gostaria de agendar uma avaliação.");
+  </script>
 
-                        <p class="mt-2 sm:mt-3 text-[13px] sm:text-[14px] leading-relaxed text-[#f5f1e8]/55 max-w-sm">
-                            Escolha a melhor
-                            forma de falar com a gente ou veja nossos conteúdos abaixo.
-                        </p>
+  <!-- ============================================================
+       NAVEGAÇÃO FIXA NO TOPO
+       ============================================================ -->
+  <header class="nav-topo">
+    <div class="nav-conteudo">
+      <img class="nav-logo" src="https://id-preview--c114000d-f9f5-46b7-82c8-1865f99f17e2.lovable.app/__l5e/assets-v1/462b6f2f-9467-4376-b7c1-77911882b4a8/logo.png" alt="Dr. Gabriel Reis" />
+      <a class="nav-cta" id="cta-nav" target="_blank" rel="noopener">Agendar consulta</a>
+    </div>
+  </header>
 
-                    </div>
+  <main>
 
-                    <!-- RIGHT — links -->
-                    <nav class="flex flex-col gap-2 sm:gap-2.5">
-                        <a
-                            href="https://wa.me/5532999080503?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20odontol%C3%B3gica."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="card-link group relative flex items-center gap-3 w-full pl-3 pr-4 py-3 sm:pl-4 sm:pr-5 sm:py-3.5 rounded-xl border overflow-hidden transition-transform duration-300 bg-[#d4a857] border-[#d4a857] is-highlight hover:-translate-y-0.5"
-                        >
-                            <span class="relative z-10 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-[#080808]/15 text-[#080808] border border-[#080808]/25 shrink-0">
-                                <svg class="h-4 w-4" stroke-width="1.75" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                                </svg>
-                            </span>
-                            <span class="relative z-10 flex-1 flex flex-col items-end text-right min-w-0">
-                                <span class="font-display text-[15px] sm:text-lg font-medium text-[#080808] tracking-tight leading-tight">Agende sua consulta</span>
-                                <span class="text-[11px] sm:text-[12px] text-[#080808]/65 mt-0.5">WhatsApp · resposta rápida</span>
-                            </span>
-                            <span class="card-arrow relative z-10 hidden sm:flex h-9 w-9 items-center justify-center rounded-full bg-[#080808] text-[#d4a857] shrink-0">
-                                <svg class="h-[16px] w-[16px]" stroke-width="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </span>
-                        </a>
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero">
+      <div class="hero-grade"></div>
+      <div class="container hero-conteudo">
+        <div>
+          <div class="etiqueta-secao"><span>Clínica Dr. Gabriel Reis · Divino MG</span></div>
+          <h1>Implantes dentários e <span class="texto-ouro">sorriso fixo</span> <span class="fonte-serif" style="font-weight:400">no mesmo dia</span></h1>
+          <p class="hero-sub">Volte a sorrir, mastigar com segurança e viver sem o incômodo da prótese removível.</p>
+          <p class="hero-apoio">Na Clínica Dr. Gabriel Reis, você encontra tratamentos modernos em implantes dentários, com destaque para o <span style="color:#fff">protocolo carga imediata</span> — uma solução que permite ao paciente sair com dentes fixos no mesmo dia, quando indicado após avaliação.</p>
 
-                        <a
-                            href="#"
-                            onclick="openDevModal(); return false;"
-                            class="card-link group relative flex items-center gap-3 w-full pl-3 pr-4 py-3 sm:pl-4 sm:pr-5 sm:py-3.5 rounded-xl border overflow-hidden transition-transform duration-300 bg-white/[0.025] border-white/[0.08] hover:-translate-y-0.5 hover:border-[#d4a857]"
-                        >
-                            <span aria-hidden="true" class="card-fill"></span>
-                            <span class="relative z-10 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-[#d4a857]/10 text-[#d4a857] border border-[#d4a857]/30 shrink-0 transition-colors duration-300 group-hover:bg-[#080808]/15 group-hover:text-[#080808] group-hover:border-[#080808]/25">
-                                <svg class="h-4 w-4" stroke-width="1.75" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                                </svg>
-                            </span>
-                            <span class="relative z-10 flex-1 flex flex-col items-end text-right min-w-0">
-                                <span class="font-display text-[15px] sm:text-lg font-medium text-[#f5f1e8] tracking-tight leading-tight transition-colors duration-300 group-hover:text-[#080808]">Visite nosso site</span>
-                                <span class="text-[11px] sm:text-[12px] text-[#f5f1e8]/40 mt-0.5 transition-colors duration-300 group-hover:text-[#080808]/65">drgabrielreis.com</span>
-                            </span>
-                            <span class="card-arrow relative z-10 hidden sm:flex h-9 w-9 items-center justify-center rounded-full bg-[#080808] text-[#d4a857] shrink-0">
-                                <svg class="h-[16px] w-[16px]" stroke-width="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </span>
-                        </a>
+          <div class="hero-cta-bloco">
+            <a class="botao-animado cta-whatsapp" target="_blank" rel="noopener" aria-label="Agendar consulta no WhatsApp">
+              <svg class="seta-esquerda" viewBox="0 0 24 24" aria-hidden><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/></svg>
+              <span class="texto-botao">Agendar uma consulta</span>
+              <span class="circulo"></span>
+              <svg class="seta-direita" viewBox="0 0 24 24" aria-hidden><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/></svg>
+            </a>
+            <span class="micro-copy">Atendimento em Divino MG com planejamento individualizado.</span>
+          </div>
 
-                        <a
-                            href="https://instagram.com/clinicagabrielreis"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="card-link group relative flex items-center gap-3 w-full pl-3 pr-4 py-3 sm:pl-4 sm:pr-5 sm:py-3.5 rounded-xl border overflow-hidden transition-transform duration-300 bg-white/[0.025] border-white/[0.08] hover:-translate-y-0.5 hover:border-[#d4a857]"
-                        >
-                            <span aria-hidden="true" class="card-fill"></span>
-                            <span class="relative z-10 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-[#d4a857]/10 text-[#d4a857] border border-[#d4a857]/30 shrink-0 transition-colors duration-300 group-hover:bg-[#080808]/15 group-hover:text-[#080808] group-hover:border-[#080808]/25">
-                                <svg class="h-4 w-4" stroke-width="1.75" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                </svg>
-                            </span>
-                            <span class="relative z-10 flex-1 flex flex-col items-end text-right min-w-0">
-                                <span class="font-display text-[15px] sm:text-lg font-medium text-[#f5f1e8] tracking-tight leading-tight transition-colors duration-300 group-hover:text-[#080808]">Instagram</span>
-                                <span class="text-[11px] sm:text-[12px] text-[#f5f1e8]/40 mt-0.5 transition-colors duration-300 group-hover:text-[#080808]/65">@clinicagabrielreis</span>
-                            </span>
-                            <span class="card-arrow relative z-10 hidden sm:flex h-9 w-9 items-center justify-center rounded-full bg-[#080808] text-[#d4a857] shrink-0">
-                                <svg class="h-[16px] w-[16px]" stroke-width="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </span>
-                        </a>
-
-                        <a
-                            href="https://wa.me/5532999080503?text=Ol%C3%A1!%20Tenho%20algumas%20d%C3%BAvidas."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="card-link group relative flex items-center gap-3 w-full pl-3 pr-4 py-3 sm:pl-4 sm:pr-5 sm:py-3.5 rounded-xl border overflow-hidden transition-transform duration-300 bg-white/[0.025] border-white/[0.08] hover:-translate-y-0.5 hover:border-[#d4a857]"
-                        >
-                            <span aria-hidden="true" class="card-fill"></span>
-                            <span class="relative z-10 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-[#d4a857]/10 text-[#d4a857] border border-[#d4a857]/30 shrink-0 transition-colors duration-300 group-hover:bg-[#080808]/15 group-hover:text-[#080808] group-hover:border-[#080808]/25">
-                                <svg class="h-4 w-4" stroke-width="1.75" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                                </svg>
-                            </span>
-                            <span class="relative z-10 flex-1 flex flex-col items-end text-right min-w-0">
-                                <span class="font-display text-[15px] sm:text-lg font-medium text-[#f5f1e8] tracking-tight leading-tight transition-colors duration-300 group-hover:text-[#080808]">Tire suas dúvidas</span>
-                                <span class="text-[11px] sm:text-[12px] text-[#f5f1e8]/40 mt-0.5 transition-colors duration-300 group-hover:text-[#080808]/65">Fale com a equipe</span>
-                            </span>
-                            <span class="card-arrow relative z-10 hidden sm:flex h-9 w-9 items-center justify-center rounded-full bg-[#080808] text-[#d4a857] shrink-0">
-                                <svg class="h-[16px] w-[16px]" stroke-width="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </span>
-                        </a>
-                    </nav>
-                </div>
-            </section>
-
-            <!-- PREVIEWS GRID -->
-            <section class="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                <div
-                    onclick="openVideoModal('dr.gabrielreis.mp4')"
-                    class="preview-card group relative flex flex-col rounded-[20px] border border-white/[0.06] bg-[#0c0c0c]/85 backdrop-blur-xl p-3.5 sm:p-4 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:-translate-y-1 cursor-pointer"
-                >
-                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-[#1a1a1a]">
-                        <video
-                            src="dr.gabrielreis.mp4"
-                            muted
-                            playsinline
-                            class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        ></video>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-
-                        <!-- Kind chip -->
-                        <span class="absolute left-2.5 top-2.5 inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.15em] text-[#f5f1e8]">
-                            <svg class="h-3 w-3 text-[#d4a857]" stroke-width="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
-                                <path d="m10 15 5-3-5-3z"></path>
-                            </svg>
-                            Vídeo
-                        </span>
-
-                        <!-- Play overlay for videos -->
-                        <span class="absolute inset-0 flex items-center justify-center">
-                            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-[#d4a857] text-[#080808] shadow-[0_10px_30px_-8px_rgba(212,168,87,0.6)] transition-transform duration-300 group-hover:scale-110">
-                                <svg class="h-4 w-4 fill-current ml-0.5" stroke-width="0" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                </svg>
-                            </span>
-                        </span>
-                    </div>
-
-                    <div class="mt-3 flex flex-col flex-1">
-                        <h3 class="font-display text-[15px] sm:text-[16px] font-medium text-[#f5f1e8] leading-snug tracking-tight">
-                            Vídeo 1
-                        </h3>
-                        <p class="mt-1.5 text-[12px] sm:text-[13px] leading-relaxed text-[#f5f1e8]/50 line-clamp-3">
-                            Conteúdo do vídeo 1.
-                        </p>
-                        <span class="mt-3 inline-flex items-center gap-1.5 text-[11px] sm:text-[12px] font-medium text-[#d4a857] uppercase tracking-[0.15em]">
-                            Assistir
-                            <svg
-                                class="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                                stroke-width="2.25"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </span>
-                    </div>
-                </div>
-
-                <div
-                    onclick="openVideoModal('dr.gabrielreis (1).mp4')"
-                    class="preview-card group relative flex flex-col rounded-[20px] border border-white/[0.06] bg-[#0c0c0c]/85 backdrop-blur-xl p-3.5 sm:p-4 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:-translate-y-1 cursor-pointer"
-                >
-                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-[#1a1a1a]">
-                        <video
-                            src="dr.gabrielreis (1).mp4"
-                            muted
-                            playsinline
-                            class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        ></video>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-
-                        <!-- Kind chip -->
-                        <span class="absolute left-2.5 top-2.5 inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.15em] text-[#f5f1e8]">
-                            <svg class="h-3 w-3 text-[#d4a857]" stroke-width="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
-                                <path d="m10 15 5-3-5-3z"></path>
-                            </svg>
-                            Vídeo
-                        </span>
-
-                        <!-- Play overlay for videos -->
-                        <span class="absolute inset-0 flex items-center justify-center">
-                            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-[#d4a857] text-[#080808] shadow-[0_10px_30px_-8px_rgba(212,168,87,0.6)] transition-transform duration-300 group-hover:scale-110">
-                                <svg class="h-4 w-4 fill-current ml-0.5" stroke-width="0" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                </svg>
-                            </span>
-                        </span>
-                    </div>
-
-                    <div class="mt-3 flex flex-col flex-1">
-                        <h3 class="font-display text-[15px] sm:text-[16px] font-medium text-[#f5f1e8] leading-snug tracking-tight">
-                            Vídeo 2
-                        </h3>
-                        <p class="mt-1.5 text-[12px] sm:text-[13px] leading-relaxed text-[#f5f1e8]/50 line-clamp-3">
-                            Conteúdo do vídeo 2.
-                        </p>
-                        <span class="mt-3 inline-flex items-center gap-1.5 text-[11px] sm:text-[12px] font-medium text-[#d4a857] uppercase tracking-[0.15em]">
-                            Assistir
-                            <svg
-                                class="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                                stroke-width="2.25"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </span>
-                    </div>
-                </div>
-
-                <div
-                    onclick="openVideoModal('dr.gabrielreis (2).mp4')"
-                    class="preview-card group relative flex flex-col rounded-[20px] border border-white/[0.06] bg-[#0c0c0c]/85 backdrop-blur-xl p-3.5 sm:p-4 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:-translate-y-1 cursor-pointer"
-                >
-                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-[#1a1a1a]">
-                        <video
-                            src="dr.gabrielreis (2).mp4"
-                            muted
-                            playsinline
-                            class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        ></video>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-
-                        <!-- Kind chip -->
-                        <span class="absolute left-2.5 top-2.5 inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.15em] text-[#f5f1e8]">
-                            <svg class="h-3 w-3 text-[#d4a857]" stroke-width="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
-                                <path d="m10 15 5-3-5-3z"></path>
-                            </svg>
-                            Vídeo
-                        </span>
-
-                        <!-- Play overlay for videos -->
-                        <span class="absolute inset-0 flex items-center justify-center">
-                            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-[#d4a857] text-[#080808] shadow-[0_10px_30px_-8px_rgba(212,168,87,0.6)] transition-transform duration-300 group-hover:scale-110">
-                                <svg class="h-4 w-4 fill-current ml-0.5" stroke-width="0" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                </svg>
-                            </span>
-                        </span>
-                    </div>
-
-                    <div class="mt-3 flex flex-col flex-1">
-                        <h3 class="font-display text-[15px] sm:text-[16px] font-medium text-[#f5f1e8] leading-snug tracking-tight">
-                            Vídeo 3
-                        </h3>
-                        <p class="mt-1.5 text-[12px] sm:text-[13px] leading-relaxed text-[#f5f1e8]/50 line-clamp-3">
-                            Conteúdo do vídeo 3.
-                        </p>
-                        <span class="mt-3 inline-flex items-center gap-1.5 text-[11px] sm:text-[12px] font-medium text-[#d4a857] uppercase tracking-[0.15em]">
-                            Assistir
-                            <svg
-                                class="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                                stroke-width="2.25"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </span>
-                    </div>
-                </div>
-
-                <div
-                    onclick="openVideoModal('dr.gabrielreis (3).mp4')"
-                    class="preview-card group relative flex flex-col rounded-[20px] border border-white/[0.06] bg-[#0c0c0c]/85 backdrop-blur-xl p-3.5 sm:p-4 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:-translate-y-1 cursor-pointer"
-                >
-                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-[#1a1a1a]">
-                        <video
-                            src="dr.gabrielreis (3).mp4"
-                            muted
-                            playsinline
-                            class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        ></video>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-
-                        <!-- Kind chip -->
-                        <span class="absolute left-2.5 top-2.5 inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.15em] text-[#f5f1e8]">
-                            <svg class="h-3 w-3 text-[#d4a857]" stroke-width="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
-                                <path d="m10 15 5-3-5-3z"></path>
-                            </svg>
-                            Vídeo
-                        </span>
-
-                        <!-- Play overlay for videos -->
-                        <span class="absolute inset-0 flex items-center justify-center">
-                            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-[#d4a857] text-[#080808] shadow-[0_10px_30px_-8px_rgba(212,168,87,0.6)] transition-transform duration-300 group-hover:scale-110">
-                                <svg class="h-4 w-4 fill-current ml-0.5" stroke-width="0" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                </svg>
-                            </span>
-                        </span>
-                    </div>
-
-                    <div class="mt-3 flex flex-col flex-1">
-                        <h3 class="font-display text-[15px] sm:text-[16px] font-medium text-[#f5f1e8] leading-snug tracking-tight">
-                            Vídeo 4
-                        </h3>
-                        <p class="mt-1.5 text-[12px] sm:text-[13px] leading-relaxed text-[#f5f1e8]/50 line-clamp-3">
-                            Conteúdo do vídeo 4.
-                        </p>
-                        <span class="mt-3 inline-flex items-center gap-1.5 text-[11px] sm:text-[12px] font-medium text-[#d4a857] uppercase tracking-[0.15em]">
-                            Assistir
-                            <svg
-                                class="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                                stroke-width="2.25"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- DEV MODAL -->
-            <div id="devModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 p-4">
-                <div class="relative w-full max-w-md rounded-[22px] border border-white/[0.06] bg-[#0c0c0c]/95 backdrop-blur-xl p-8">
-                    <button onclick="closeDevModal()" class="absolute top-4 right-4 text-white/50 hover:text-[#d4a857] transition-colors">
-                        <svg class="h-6 w-6" stroke-width="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </button>
-                    <div class="text-center">
-                        <h2 class="font-display text-2xl font-medium text-[#f5f1e8] mb-4">Site em desenvolvimento</h2>
-                        <p class="text-[#f5f1e8]/60">Estamos trabalhando em algo especial. Volte em breve!</p>
-                    </div>
-                </div>
-            </div>
-
-            <script>
-                function openDevModal() {
-                    const modal = document.getElementById('devModal');
-                    modal.classList.remove('hidden');
-                    modal.classList.add('flex');
-                }
-
-                function closeDevModal() {
-                    const modal = document.getElementById('devModal');
-                    modal.classList.add('hidden');
-                    modal.classList.remove('flex');
-                }
-
-                document.getElementById('devModal').addEventListener('click', function(e) {
-                    if (e.target === this) {
-                        closeDevModal();
-                    }
-                });
-
-                document.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape') {
-                        closeDevModal();
-                    }
-                });
-            </script>
-
-            <!-- FOOTER -->
-            <footer class="rounded-[20px] border border-white/[0.06] bg-[#0c0c0c]/85 backdrop-blur-xl p-5 sm:p-6">
-                <div class="grid gap-5 sm:grid-cols-3 text-[12px] sm:text-[13px] text-[#f5f1e8]/70">
-                    <div>
-                        <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-[#d4a857]">Endereço</p>
-                        <p class="mt-1.5 leading-relaxed">R. José Victor de Oliveira, 151 - Divino, MG</p>
-                    </div>
-                    <div>
-                        <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-[#d4a857]">WhatsApp</p>
-                        <a
-                            href="https://wa.me/5532999080503"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="mt-1.5 inline-block hover:text-[#d4a857] transition-colors"
-                        >
-                            (32) 99908-0503
-                        </a>
-                    </div>
-                    <div>
-                        <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-[#d4a857]">Instagram</p>
-                        <a
-                            href="https://instagram.com/clinicagabrielreis"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="mt-1.5 inline-block hover:text-[#d4a857] transition-colors"
-                        >
-                            @clinicagabrielreis
-                        </a>
-                    </div>
-                </div>
-                <p class="mt-6 text-center font-mono text-[10px] tracking-[0.2em] uppercase text-[#f5f1e8]/25">
-                    © 2026 · Clínica Odontológica Dr. Gabriel Reis
-                </p>
-            </footer>
+          <!-- Selos de autoridade -->
+          <div class="selos">
+            <div class="selo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg><span>+16 anos de experiência</span></div>
+            <div class="selo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg><span>Implantodontia</span></div>
+            <div class="selo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Protocolo All on 4</span></div>
+            <div class="selo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg><span>Tecnologias avançadas</span></div>
+          </div>
         </div>
-    </main>
+
+        <div class="hero-imagem-wrap">
+          <div class="hero-imagem-glow"></div>
+          <div class="hero-imagem">
+            <img src="https://id-preview--c114000d-f9f5-46b7-82c8-1865f99f17e2.lovable.app/__l5e/assets-v1/f6e2792a-9552-4670-9bbb-7e8c49b5393a/team.jpeg" alt="Dr. Gabriel Reis e Marília Reis" />
+            <div class="hero-imagem-legenda">
+              <div class="nome-pequeno">Dr. Gabriel Reis</div>
+              <div class="nome-grande">Implantodontista · CRO-MG</div>
+              <div class="sub">com Marília Reis · ASB / Nutrição Clínica</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DOR E IDENTIFICAÇÃO
+         ============================================================ -->
+    <section class="secao-dor">
+      <div class="container">
+        <div class="centralizar">
+          <div class="etiqueta-secao"><span>Identificação</span></div>
+          <h2 class="titulo-secao">Perder dentes muda <span class="fonte-serif" style="color:#a87a1c">mais</span> do que o seu sorriso</h2>
+          <p class="descricao-secao">A falta de dentes pode atrapalhar momentos simples do dia a dia, como sorrir em uma foto, conversar com segurança ou comer aquilo que você gosta.</p>
+        </div>
+
+        <div class="grade-cards">
+          <!-- Cards de dor — gerados via template no script -->
+          <div class="card-claro"><div class="icone-ouro"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><p>Você evita sorrir por vergonha</p></div>
+          <div class="card-claro"><div class="icone-ouro"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><p>Tem dificuldade para mastigar carnes, churrasco ou alimentos mais firmes</p></div>
+          <div class="card-claro"><div class="icone-ouro"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><p>Usa prótese removível que machuca ou incomoda</p></div>
+          <div class="card-claro"><div class="icone-ouro"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><p>Sente insegurança ao falar ou sorrir</p></div>
+          <div class="card-claro"><div class="icone-ouro"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><p>Tem medo de que a situação piore com o tempo</p></div>
+          <div class="card-fechamento"><p>A boa notícia é que hoje existem soluções modernas para devolver estabilidade, estética e confiança ao seu sorriso.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROTOCOLO CARGA IMEDIATA
+         ============================================================ -->
+    <section class="secao-protocolo">
+      <div class="container grade-2">
+        <div>
+          <div class="etiqueta-secao"><span>Protocolo Carga Imediata</span></div>
+          <h2 class="titulo-secao">O que é o <span class="texto-ouro">protocolo carga imediata</span>?</h2>
+          <p class="texto-claro-forte">Uma solução para quem deseja dentes fixos, segurança ao mastigar e um novo sorriso em menos tempo.</p>
+          <p class="texto-claro" style="margin-top:16px">O protocolo carga imediata é uma técnica utilizada em casos indicados onde os implantes são planejados para receber uma prótese fixa em curto prazo, permitindo que o paciente saia com um sorriso renovado no mesmo dia do procedimento.</p>
+          <p class="texto-claro" style="margin-top:12px">É uma opção muito procurada por pacientes que perderam vários dentes, usam dentadura ou prótese removível e desejam mais conforto, firmeza e confiança.</p>
+          <div style="margin-top:32px">
+            <a class="botao-animado cta-whatsapp" target="_blank" rel="noopener">
+              <svg class="seta-esquerda" viewBox="0 0 24 24" aria-hidden><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/></svg>
+              <span class="texto-botao">Agendar uma consulta</span>
+              <span class="circulo"></span>
+              <svg class="seta-direita" viewBox="0 0 24 24" aria-hidden><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="card-escuro">
+          <div class="selo-card-titulo">Benefícios</div>
+          <ul class="lista-beneficios">
+            <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Dentes fixos</li>
+            <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Mais segurança para mastigar</li>
+            <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Sorriso renovado</li>
+            <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Planejamento individualizado</li>
+            <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Resultado com aparência natural</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TIPOS DE IMPLANTES
+         ============================================================ -->
+    <section class="secao-implantes">
+      <div class="container">
+        <div style="max-width:720px">
+          <div class="etiqueta-secao"><span>Implantes Dentários</span></div>
+          <h2 class="titulo-secao">Implantes dentários para recuperar <span class="fonte-serif" style="color:#a87a1c">função, estética e confiança</span></h2>
+          <p class="descricao-secao" style="margin-left:0">Os implantes dentários são indicados para substituir dentes perdidos de forma segura e funcional, ajudando o paciente a recuperar a mastigação, a estética do sorriso e a qualidade de vida.</p>
+        </div>
+
+        <div class="grade-4">
+          <div class="card-implante"><div class="numero-card">01</div><h3>Implante unitário</h3><p>Para quem perdeu apenas um dente.</p><div class="linha-ouro"></div></div>
+          <div class="card-implante"><div class="numero-card">02</div><h3>Implantes múltiplos</h3><p>Para quem perdeu mais de um dente.</p><div class="linha-ouro"></div></div>
+          <div class="card-implante"><div class="numero-card">03</div><h3>Protocolo fixo</h3><p>Para quem usa dentadura ou perdeu grande parte dos dentes.</p><div class="linha-ouro"></div></div>
+          <div class="card-implante"><div class="numero-card">04</div><h3>Reabilitação oral</h3><p>Planejamento completo para devolver função e estética ao sorriso.</p><div class="linha-ouro"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ANTES E DEPOIS
+         ============================================================ -->
+    <section class="secao-antes-depois">
+      <div class="container">
+        <div class="centralizar">
+          <div class="etiqueta-secao"><span>Antes e Depois</span></div>
+          <h2 class="titulo-secao"><span class="texto-ouro">Transformações</span> reais</h2>
+          <p class="descricao-secao" style="color:rgba(255,255,255,0.7)">Veja casos de pacientes que recuperaram o sorriso, a mastigação e a confiança.</p>
+        </div>
+
+        <div class="grade-antes-depois">
+          <figure class="card-caso"><img src="https://id-preview--c114000d-f9f5-46b7-82c8-1865f99f17e2.lovable.app/__l5e/assets-v1/31ac0662-742a-4a4c-adc4-c08d3a064c7c/ba1.png" alt="Antes e depois 1" loading="lazy"/><figcaption class="legenda-caso"><span>Antes</span><span class="texto-ouro">Depois</span></figcaption></figure>
+          <figure class="card-caso"><img src="https://id-preview--c114000d-f9f5-46b7-82c8-1865f99f17e2.lovable.app/__l5e/assets-v1/c03d0d0e-a7fc-48c9-bfb8-b956f89a1cf7/ba2.png" alt="Antes e depois 2" loading="lazy"/><figcaption class="legenda-caso"><span>Antes</span><span class="texto-ouro">Depois</span></figcaption></figure>
+          <figure class="card-caso"><img src="https://id-preview--c114000d-f9f5-46b7-82c8-1865f99f17e2.lovable.app/__l5e/assets-v1/6239a864-a8fd-44bd-bb30-b983432bf4dc/ba3.png" alt="Antes e depois 3" loading="lazy"/><figcaption class="legenda-caso"><span>Antes</span><span class="texto-ouro">Depois</span></figcaption></figure>
+          <figure class="card-caso"><img src="https://id-preview--c114000d-f9f5-46b7-82c8-1865f99f17e2.lovable.app/__l5e/assets-v1/f74b31f3-6314-4fe3-8229-c8214983fd9b/ba4.png" alt="Antes e depois 4" loading="lazy"/><figcaption class="legenda-caso"><span>Antes</span><span class="texto-ouro">Depois</span></figcaption></figure>
+        </div>
+
+        <p class="aviso-discreto">Cada resultado depende da avaliação individual, condição óssea, planejamento e indicação profissional.</p>
+
+        <div class="centro-flex">
+          <a class="botao-animado cta-whatsapp" target="_blank" rel="noopener">
+            <svg class="seta-esquerda" viewBox="0 0 24 24" aria-hidden><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/></svg>
+            <span class="texto-botao">Quero avaliar meu caso</span>
+            <span class="circulo"></span>
+            <svg class="seta-direita" viewBox="0 0 24 24" aria-hidden><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DR. GABRIEL REIS
+         ============================================================ -->
+    <section class="secao-doutor">
+      <div class="container">
+        <div class="card-doutor">
+          <div class="card-doutor-foto">
+            <img src="https://id-preview--c114000d-f9f5-46b7-82c8-1865f99f17e2.lovable.app/__l5e/assets-v1/f6e2792a-9552-4670-9bbb-7e8c49b5393a/team.jpeg" alt="Dr. Gabriel Reis"/>
+            <div class="selo-cro">CRO-MG</div>
+          </div>
+          <div class="card-doutor-info">
+            <div class="etiqueta-secao"><span>Quem cuida de você</span></div>
+            <h2>Conheça o Dr. Gabriel Reis</h2>
+            <p class="destaque-cargo">Implantodontista especializado em Protocolo All on 4, com mais de 16 anos de experiência.</p>
+            <p style="margin-top:20px;font-size:15px;line-height:1.65;color:var(--texto-suave)">O Dr. Gabriel Reis atua há mais de 16 anos transformando sorrisos através da implantodontia, reabilitação oral e protocolo carga imediata.</p>
+            <p style="margin-top:12px;font-size:15px;line-height:1.65;color:var(--texto-suave)">Seu trabalho une planejamento, tecnologia e cuidado humanizado para oferecer tratamentos seguros, personalizados e pensados para devolver ao paciente a liberdade de sorrir, mastigar e viver com mais confiança.</p>
+            <ul class="lista-diferenciais">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Mais de 16 anos de experiência</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Especialista em implantes dentários</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Atuação em protocolo All on 4</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Planejamento individualizado</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Foco em naturalidade e função</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Acompanhamento em todas as etapas</li>
+            </ul>
+            <div style="margin-top:32px">
+              <a class="botao-animado cta-whatsapp" target="_blank" rel="noopener">
+                <svg class="seta-esquerda" viewBox="0 0 24 24" aria-hidden><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/></svg>
+                <span class="texto-botao">Agendar uma consulta</span>
+                <span class="circulo"></span>
+                <svg class="seta-direita" viewBox="0 0 24 24" aria-hidden><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CLÍNICA E EQUIPE
+         ============================================================ -->
+    <section class="secao-clinica">
+      <div class="container">
+        <div style="max-width:760px">
+          <div class="etiqueta-secao"><span>A Clínica</span></div>
+          <h2 class="titulo-secao">Uma clínica preparada para cuidar do seu sorriso em <span class="texto-ouro">cada detalhe</span></h2>
+          <p class="texto-claro" style="margin-top:20px">A Clínica Dr. Gabriel Reis conta com uma estrutura moderna, tecnologias avançadas e uma equipe preparada para oferecer uma experiência completa ao paciente, desde a avaliação inicial até o acompanhamento pós-tratamento.</p>
+        </div>
+
+        <div class="grade-clinica">
+          <div class="card-marilia">
+            <div class="card-marilia-topo">
+              <div class="card-marilia-icone"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
+              <div>
+                <div class="funcao">Marília Reis</div>
+                <h3>Nutrição Clínica</h3>
+              </div>
+            </div>
+            <p>Além do cuidado odontológico, a clínica conta com a atuação de <strong style="color:#fff">Marília Reis</strong>, nutricionista clínica, que contribui no acompanhamento dos pacientes, auxiliando na recuperação e no cuidado pós-procedimento de forma mais completa e personalizada.</p>
+          </div>
+
+          <div class="grade-mini-cards">
+            <div class="mini-card"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg><h4>Tecnologias avançadas</h4></div>
+            <div class="mini-card"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 17a2 2 0 0 1-2-2 5 5 0 0 1 5-5 2 2 0 0 1 2 2 5 5 0 0 1-5 5z"/><path d="M19.4 14.9C20.8 15.5 22 16.5 22 18a2 2 0 0 1-2 2c-1.5 0-2.5-1.2-3.1-2.6"/><path d="M4.6 14.9C3.2 15.5 2 16.5 2 18a2 2 0 0 0 2 2c1.5 0 2.5-1.2 3.1-2.6"/><path d="M11 5c0-1.5 1.2-3 3-3s3 1.5 3 3"/></svg><h4>Atendimento humanizado</h4></div>
+            <div class="mini-card"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/></svg><h4>Planejamento individualizado</h4></div>
+            <div class="mini-card"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><h4>Acompanhamento pós-procedimento</h4></div>
+            <div class="mini-card"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg><h4>Integração com nutrição clínica</h4></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         POR QUE ESCOLHER
+         ============================================================ -->
+    <section class="secao-porque">
+      <div class="container">
+        <div class="centralizar">
+          <div class="etiqueta-secao"><span>Diferenciais</span></div>
+          <h2 class="titulo-secao">Por que escolher a <span class="fonte-serif" style="color:#a87a1c">Clínica Dr. Gabriel Reis?</span></h2>
+        </div>
+        <div class="grade-porque">
+          <div class="card-porque"><div class="numero">01</div><h3>Experiência</h3><div class="divisor-ouro"></div><p>Mais de 16 anos de atuação em implantodontia e reabilitação oral.</p></div>
+          <div class="card-porque"><div class="numero">02</div><h3>Carga imediata</h3><div class="divisor-ouro"></div><p>Tratamentos com foco em protocolo fixo e dentes renovados no mesmo dia, quando o caso permite.</p></div>
+          <div class="card-porque"><div class="numero">03</div><h3>Cuidado completo</h3><div class="divisor-ouro"></div><p>Acompanhamento antes, durante e depois do procedimento.</p></div>
+          <div class="card-porque"><div class="numero">04</div><h3>Resultado natural</h3><div class="divisor-ouro"></div><p>Planejamento pensado para devolver estética, função e harmonia ao sorriso.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DEPOIMENTOS EM VÍDEO
+         ============================================================ -->
+    <section class="secao-depoimentos">
+      <div class="container">
+        <div class="centralizar">
+          <div class="etiqueta-secao"><span>Depoimentos</span></div>
+          <h2 class="titulo-secao">Histórias de quem voltou a sorrir <span class="texto-ouro">com confiança</span></h2>
+          <p class="descricao-secao" style="color:rgba(255,255,255,0.7)">Assista aos depoimentos de pacientes que passaram pela transformação na Clínica Dr. Gabriel Reis.</p>
+        </div>
+
+        <div class="grade-depoimentos" id="grade-depoimentos">
+          <!-- Cards gerados via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MEDO DE DENTISTA
+         ============================================================ -->
+    <section class="secao-medo">
+      <div class="container">
+        <div style="max-width:760px">
+          <div class="etiqueta-secao"><span>Cuidado humanizado</span></div>
+          <h2 class="titulo-secao">Medo de dentista? Aqui você é cuidado com <span class="fonte-serif" style="color:#a87a1c">calma, segurança e atenção</span></h2>
+          <p class="descricao-secao" style="margin-left:0">Muitos pacientes chegam com medo da cirurgia, da dor ou do procedimento. Por isso, cada etapa é explicada com clareza, respeitando o tempo, as dúvidas e a realidade de cada pessoa.</p>
+          <p class="descricao-secao" style="margin:12px 0 0">O objetivo é que você se sinta seguro desde a primeira consulta, com um planejamento claro e acompanhamento durante todo o processo.</p>
+        </div>
+        <div class="grade-medo">
+          <div class="card-medo"><div class="icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><p>Avaliação cuidadosa</p></div>
+          <div class="card-medo"><div class="icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><p>Explicação de cada etapa</p></div>
+          <div class="card-medo"><div class="icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><p>Ambiente acolhedor</p></div>
+          <div class="card-medo"><div class="icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><p>Anestesia e técnicas para maior conforto</p></div>
+          <div class="card-medo"><div class="icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><p>Acompanhamento pós-procedimento</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PRODUTORES RURAIS
+         ============================================================ -->
+    <section class="secao-rural">
+      <div class="container">
+        <div class="card-rural">
+          <div class="conteudo-rural">
+            <div>
+              <div class="etiqueta-secao"><span>Condições especiais</span></div>
+              <h2>Condições especiais para <span class="texto-ouro">produtores rurais</span></h2>
+              <p>A Clínica Dr. Gabriel Reis oferece condições especiais para produtores rurais que desejam recuperar o sorriso, voltar a mastigar com segurança e melhorar sua qualidade de vida.</p>
+            </div>
+            <div class="alinha-direita">
+              <a class="botao-animado cta-whatsapp" target="_blank" rel="noopener">
+                <svg class="seta-esquerda" viewBox="0 0 24 24" aria-hidden><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/></svg>
+                <span class="texto-botao">Agendar uma consulta</span>
+                <span class="circulo"></span>
+                <svg class="seta-direita" viewBox="0 0 24 24" aria-hidden><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ
+         ============================================================ -->
+    <section class="secao-faq">
+      <div class="container-pequeno">
+        <div class="centralizar">
+          <div class="etiqueta-secao"><span>FAQ</span></div>
+          <h2 class="titulo-secao">Dúvidas frequentes</h2>
+        </div>
+        <div class="lista-faq" id="lista-faq">
+          <!-- Itens gerados via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA FINAL
+         ============================================================ -->
+    <section class="cta-final">
+      <div class="container-pequeno">
+        <div class="etiqueta-secao"><span>Próximo passo</span></div>
+        <h2>Não espere a vergonha de sorrir continuar <span class="texto-ouro">limitando sua vida</span></h2>
+        <p class="sub">Agende sua consulta e descubra qual é o melhor caminho para recuperar seu sorriso com implantes dentários.</p>
+        <p class="apoio">Na Clínica Dr. Gabriel Reis, você será avaliado com atenção, planejamento individualizado e acompanhamento completo.</p>
+        <div style="margin-top:40px; display:flex; justify-content:center;">
+          <a class="botao-animado cta-whatsapp" target="_blank" rel="noopener">
+            <svg class="seta-esquerda" viewBox="0 0 24 24" aria-hidden><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/></svg>
+            <span class="texto-botao">Agendar uma consulta</span>
+            <span class="circulo"></span>
+            <svg class="seta-direita" viewBox="0 0 24 24" aria-hidden><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/></svg>
+          </a>
+        </div>
+        <p style="margin-top:20px;font-size:12px;color:rgba(255,255,255,0.55)">Atendimento em Divino MG.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       RODAPÉ
+       ============================================================ -->
+  <footer class="rodape">
+    <div class="container">
+      <div class="grade-rodape">
+        <div>
+          <img class="logo-rodape" src="https://id-preview--c114000d-f9f5-46b7-82c8-1865f99f17e2.lovable.app/__l5e/assets-v1/462b6f2f-9467-4376-b7c1-77911882b4a8/logo.png" alt="Dr. Gabriel Reis"/>
+          <p style="margin-top:20px;font-size:14px;line-height:1.65">Centro de Odontologia Especializada. Implantes dentários, protocolo carga imediata e reabilitação oral em Divino MG.</p>
+        </div>
+        <div>
+          <h4>Contato</h4>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Rua José Victor de Oliveira, 151 — Divino, MG</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> WhatsApp: <a id="link-whatsapp-rodape" style="color:#fff;text-decoration:underline" target="_blank" rel="noopener">(inserir número)</a></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></svg> @clinicadrgabrielreis</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Responsável técnico</h4>
+          <ul>
+            <li>Dr. Gabriel Reis</li>
+            <li>CRO-MG: (inserir CRO)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="rodape-divisor"></div>
+      <p class="aviso-final">As informações deste site não substituem uma avaliação profissional. Cada caso deve ser analisado individualmente.</p>
+      <p class="copyright">© <span id="ano-atual"></span> Clínica Dr. Gabriel Reis. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       BOTÃO FLUTUANTE WHATSAPP
+       ============================================================ -->
+  <a class="whatsapp-flutuante cta-whatsapp" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor" aria-hidden>
+      <path d="M19.11 17.34c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35zM16.03 5.33c-5.9 0-10.69 4.79-10.69 10.69 0 1.88.49 3.71 1.42 5.32L5.34 26.67l5.5-1.44a10.66 10.66 0 0 0 5.19 1.32h.01c5.9 0 10.69-4.79 10.69-10.69 0-2.86-1.11-5.55-3.13-7.57a10.62 10.62 0 0 0-7.57-3.13z"/>
+    </svg>
+  </a>
+
+  <!-- ============================================================
+       JAVASCRIPT — Interatividade
+       ============================================================ -->
+  <script>
+    // ============================================================
+    // 1) Aplica o link do WhatsApp em todos os CTAs da página
+    // ============================================================
+    document.querySelectorAll('.cta-whatsapp, #cta-nav, #link-whatsapp-rodape')
+      .forEach(function (el) { el.href = window.URL_WHATSAPP; });
+
+    // ============================================================
+    // 2) Ano dinâmico no rodapé
+    // ============================================================
+    document.getElementById('ano-atual').textContent = new Date().getFullYear();
+
+    // ============================================================
+    // 3) Geração dos cards de depoimento em vídeo
+    // ============================================================
+    (function gerarDepoimentos() {
+      var grade = document.getElementById('grade-depoimentos');
+      var totalCards = 5;
+      var html = '';
+      for (var i = 1; i <= totalCards; i++) {
+        html += ''
+          + '<div class="card-video">'
+          +   '<div class="botao-play"><span>'
+          +     '<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden><polygon points="5 3 19 12 5 21 5 3"/></svg>'
+          +   '</span></div>'
+          +   '<div class="info-video">'
+          +     '<div class="estrelas">'
+          +       repetir('<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>', 5)
+          +     '</div>'
+          +     '<div class="nome">Paciente ' + i + '</div>'
+          +     '<div class="desc">Protocolo carga imediata</div>'
+          +   '</div>'
+          + '</div>';
+      }
+      // Adiciona o card de citação ao final (visível só em desktop)
+      html += ''
+        + '<div class="card-citacao">'
+        +   '<p>"Nada transmite mais confiança do que ouvir quem já viveu essa transformação."</p>'
+        + '</div>';
+      grade.innerHTML = html;
+
+      function repetir(str, n) { var s = ''; for (var k = 0; k < n; k++) s += str; return s; }
+    })();
+
+    // ============================================================
+    // 4) Geração e interatividade da FAQ (sanfona / accordion)
+    // ============================================================
+    (function gerarFAQ() {
+      var perguntas = [
+        { q: 'O protocolo carga imediata fica pronto no mesmo dia?', a: 'Em casos indicados, o paciente pode sair com uma prótese fixa no mesmo dia do procedimento. A confirmação depende da avaliação individual.' },
+        { q: 'O procedimento dói?', a: 'O tratamento é realizado com anestesia e técnicas pensadas para oferecer mais conforto ao paciente.' },
+        { q: 'Quem usa dentadura pode fazer protocolo?', a: 'Em muitos casos, sim. A avaliação é necessária para analisar estrutura óssea, saúde bucal e melhor planejamento.' },
+        { q: 'Precisa de enxerto ósseo?', a: 'Depende de cada caso. Durante a avaliação, o Dr. Gabriel analisa a necessidade ou não de procedimentos complementares.' },
+        { q: 'O resultado fica natural?', a: 'O planejamento busca devolver função, estética e harmonia ao sorriso, respeitando as características de cada paciente.' },
+        { q: 'Qual o valor do tratamento?', a: 'O valor depende do caso, da quantidade de implantes, exames e planejamento necessário. Por isso, a avaliação é essencial.' }
+      ];
+      var lista = document.getElementById('lista-faq');
+      var html = '';
+      perguntas.forEach(function (item, i) {
+        html += ''
+          + '<div class="item-faq' + (i === 0 ? ' aberto' : '') + '">'
+          +   '<button type="button">'
+          +     '<span>' + item.q + '</span>'
+          +     '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>'
+          +   '</button>'
+          +   '<div class="resposta-faq">' + item.a + '</div>'
+          + '</div>';
+      });
+      lista.innerHTML = html;
+
+      // Comportamento de abrir/fechar
+      lista.querySelectorAll('.item-faq button').forEach(function (botao) {
+        botao.addEventListener('click', function () {
+          var itemAtual = botao.parentElement;
+          var jaAberto = itemAtual.classList.contains('aberto');
+          // Fecha todos os outros
+          lista.querySelectorAll('.item-faq').forEach(function (i) { i.classList.remove('aberto'); });
+          if (!jaAberto) itemAtual.classList.add('aberto');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
