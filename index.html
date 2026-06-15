@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dr. Gabriel Reis — Implantes Dentários e Carga Imediata em Divino MG</title>
-  <meta name="description" content="Implantes dentários, protocolo carga imediata e reabilitação oral em Divino MG. Atendimento humanizado e planejamento individualizado." />
+  <title>Dr. Gabriel Reis — Implantes Dentários e Carga Imediata em Divino, Pedra Bonita e São João</title>
+  <meta name="description" content="Implantes dentários, protocolo carga imediata e reabilitação oral em Divino, Pedra Bonita e São João. Atendimento humanizado e planejamento individualizado." />
 
   <!-- Fontes Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -165,7 +165,10 @@
       position: relative; overflow: hidden;
       background: var(--gradiente-escuro);
       color: var(--branco);
-      padding: 120px 0 80px;
+      padding: 60px 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
     }
     .hero::before {
       content: ""; position: absolute; top: -120px; left: 50%;
@@ -182,36 +185,37 @@
       background-size: 60px 60px;
     }
     .hero-conteudo {
-      position: relative; display: grid; gap: 56px; align-items: center;
+      position: relative; display: grid; gap: 40px; align-items: center;
       grid-template-columns: 1fr;
+      width: 100%;
     }
-    @media (min-width: 1024px) { .hero-conteudo { grid-template-columns: 1.1fr 0.9fr; } }
+    @media (min-width: 1024px) { .hero-conteudo { grid-template-columns: 1.1fr 0.9fr; gap: 56px; } }
 
     .hero h1 {
       margin-top: 24px;
-      font-size: clamp(28px, 5vw, 56px);
+      font-size: clamp(28px, 4.5vw, 48px);
       font-weight: 800;
       line-height: 1.05;
       letter-spacing: -0.02em;
     }
-    .hero-sub { margin-top: 24px; max-width: 560px; font-size: 18px; font-weight: 500; color: rgba(255,255,255,0.85); }
-    .hero-apoio { margin-top: 16px; max-width: 560px; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.65; }
-    .hero-cta-bloco { margin-top: 36px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .hero-sub { margin-top: 20px; max-width: 560px; font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.85); }
+    .hero-apoio { margin-top: 12px; max-width: 560px; font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+    .hero-cta-bloco { margin-top: 30px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
     @media (min-width: 640px) { .hero-cta-bloco { flex-direction: row; align-items: center; } }
     .micro-copy { font-size: 12px; color: rgba(255,255,255,0.55); }
 
     /* Selos do hero */
-    .selos { margin-top: 40px; display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); }
+    .selos { margin-top: 30px; display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); }
     @media (min-width: 640px) { .selos { grid-template-columns: repeat(4, 1fr); } }
     .selo {
       display: flex; align-items: center; gap: 8px;
-      padding: 12px;
+      padding: 10px 12px;
       border-radius: 12px;
       border: 1px solid rgba(214,169,58,0.35);
       background: rgba(255,255,255,0.03);
     }
     .selo svg { flex-shrink: 0; color: var(--ouro); }
-    .selo span { font-size: 11px; font-weight: 600; line-height: 1.2; color: rgba(255,255,255,0.85); }
+    .selo span { font-size: 10px; font-weight: 600; line-height: 1.2; color: rgba(255,255,255,0.85); }
 
     /* Imagem do hero */
     .hero-imagem-wrap { position: relative; }
@@ -226,16 +230,23 @@
       border-radius: 32px;
       border: 1px solid rgba(214,169,58,0.35);
       box-shadow: var(--sombra-elegante);
+      aspect-ratio: 4/5;
+    }
+    @media (min-width: 1024px) {
+      .hero-imagem {
+        aspect-ratio: 3/4;
+        max-height: 520px;
+      }
     }
     .hero-imagem img { width: 100%; height: 100%; object-fit: cover; }
     .hero-imagem-legenda {
       position: absolute; inset: auto 0 0 0;
-      padding: 24px;
+      padding: 20px;
       background: linear-gradient(to top, #000 0%, rgba(0,0,0,0.7) 60%, transparent 100%);
     }
-    .hero-imagem-legenda .nome-pequeno { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--ouro-claro); }
-    .hero-imagem-legenda .nome-grande { font-size: 18px; font-weight: 700; }
-    .hero-imagem-legenda .sub { font-size: 12px; color: rgba(255,255,255,0.7); }
+    .hero-imagem-legenda .nome-pequeno { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; color: var(--ouro-claro); }
+    .hero-imagem-legenda .nome-grande { font-size: 16px; font-weight: 700; }
+    .hero-imagem-legenda .sub { font-size: 11px; color: rgba(255,255,255,0.7); }
 
     /* ============================================================
        SEÇÃO DE DOR / IDENTIFICAÇÃO
@@ -718,7 +729,7 @@
        ============================================================ -->
   <script>
     // URL do WhatsApp — basta substituir o número
-    window.URL_WHATSAPP = "https://wa.me/5500000000000?text=" + encodeURIComponent("Olá Dr. Gabriel, gostaria de agendar uma avaliação.");
+    window.URL_WHATSAPP = "https://wa.me/553299080503?text=" + encodeURIComponent("Olá Dr. Gabriel, gostaria de agendar uma avaliação.");
   </script>
 
   <!-- ============================================================
@@ -740,7 +751,7 @@
       <div class="hero-grade"></div>
       <div class="container hero-conteudo">
         <div>
-          <div class="etiqueta-secao"><span>Clínica Dr. Gabriel Reis · Divino MG</span></div>
+          <div class="etiqueta-secao"><span>· Dr. Gabriel Reis ·</span></div>
           <h1>Implantes dentários e <span class="texto-ouro">sorriso fixo</span> <span class="fonte-serif" style="font-weight:400">no mesmo dia</span></h1>
           <p class="hero-sub">Volte a sorrir, mastigar com segurança e viver sem o incômodo da prótese removível.</p>
           <p class="hero-apoio">Na Clínica Dr. Gabriel Reis, você encontra tratamentos modernos em implantes dentários, com destaque para o <span style="color:#fff">protocolo carga imediata</span> — uma solução que permite ao paciente sair com dentes fixos no mesmo dia, quando indicado após avaliação.</p>
@@ -752,7 +763,7 @@
               <span class="circulo"></span>
               <svg class="seta-direita" viewBox="0 0 24 24" aria-hidden><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/></svg>
             </a>
-            <span class="micro-copy">Atendimento em Divino MG com planejamento individualizado.</span>
+            <span class="micro-copy">Atendimento em Divino, Pedra Bonita e São João com planejamento individualizado.</span>
           </div>
 
           <!-- Selos de autoridade -->
@@ -1070,7 +1081,7 @@
             <svg class="seta-direita" viewBox="0 0 24 24" aria-hidden><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/></svg>
           </a>
         </div>
-        <p style="margin-top:20px;font-size:12px;color:rgba(255,255,255,0.55)">Atendimento em Divino MG.</p>
+        <p style="margin-top:20px;font-size:12px;color:rgba(255,255,255,0.55)">Atendimento em Divino, Pedra Bonita e São João.</p>
       </div>
     </section>
   </main>
@@ -1083,7 +1094,7 @@
       <div class="grade-rodape">
         <div>
           <img class="logo-rodape" src="https://id-preview--c114000d-f9f5-46b7-82c8-1865f99f17e2.lovable.app/__l5e/assets-v1/462b6f2f-9467-4376-b7c1-77911882b4a8/logo.png" alt="Dr. Gabriel Reis"/>
-          <p style="margin-top:20px;font-size:14px;line-height:1.65">Centro de Odontologia Especializada. Implantes dentários, protocolo carga imediata e reabilitação oral em Divino MG.</p>
+          <p style="margin-top:20px;font-size:14px;line-height:1.65">Centro de Odontologia Especializada. Implantes dentários, protocolo carga imediata e reabilitação oral em Divino, Pedra Bonita e São João.</p>
         </div>
         <div>
           <h4>Contato</h4>
